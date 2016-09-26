@@ -1,0 +1,71 @@
+public class CricketPlayer {
+	String name;
+	int noOfInnings;
+	int totalruns;
+	int batAvg;
+	
+	public String toString() {
+		return "CricketPlayer [name=" + name + ", noOfInnings=" + noOfInnings
+				+ ", totalruns=" + totalruns + ", batAvg=" + batAvg + "]";
+	}
+
+	public CricketPlayer(String name, int noOfInnings, int totalruns, int batAvg) {
+		super();
+		this.name = name;
+		this.noOfInnings = noOfInnings;
+		this.totalruns = totalruns;
+		this.batAvg = batAvg;
+	}
+	public CricketPlayer(){
+		name="xxx";
+		noOfInnings=0;
+		totalruns=0;
+		batAvg=0;
+	}
+	static CricketPlayer[] create(){
+		CricketPlayer[] c=new CricketPlayer[5];
+		c[0]=new CricketPlayer("aaa",13,67,56);
+		c[1]=new CricketPlayer("bbb",13,77,50);
+		c[2]=new CricketPlayer("ccc",13,90,33);
+		c[3]=new CricketPlayer("ddd",13,38,56);
+		c[4]=new CricketPlayer("eee",34,78,45);
+		return c;
+	}
+	static CricketPlayer[] sortPlayer(CricketPlayer[] c){
+		CricketPlayer temp=new CricketPlayer();
+		for(int i=1;i<c.length;i++){
+			for(int j=0;j<c.length-1;j++){
+				if(c[j].totalruns>c[j+1].totalruns)
+				{
+					temp=c[j];
+					c[j]=c[j+1];
+					c[j+1]=temp;
+				}
+			}
+		}
+		return c;
+	}
+
+}
+public class CricketDemo {
+
+	public static void main(String[] args) {
+		CricketPlayer c=new CricketPlayer("aaa", 12, 90,25);
+		CricketPlayer[] p=new CricketPlayer[5];
+		System.out.println(c);
+		p=CricketPlayer.create();
+		System.out.println(p[0]);
+		System.out.println(p[1]);
+		System.out.println(p[2]);
+		System.out.println(p[3]);
+		System.out.println(p[4]);
+		p=CricketPlayer.sortPlayer(p);
+		System.out.println(p[0]);
+		System.out.println(p[1]);
+		System.out.println(p[2]);
+		System.out.println(p[3]);
+		System.out.println(p[4]);
+		
+	}
+
+}
