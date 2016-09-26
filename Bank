@@ -1,0 +1,60 @@
+public interface Bank {
+	public void deposit(double amt);
+	public void transfer(double amt);
+
+}
+public class SB {
+	String name;
+	long acc_no;
+	double bal;
+	
+	
+	public SB(String name, long acc_no, double bal) {
+		super();
+		this.name = name;
+		this.acc_no = acc_no;
+		this.bal = bal;
+	}
+}
+public class PF {
+		String name;
+		long acc_no;
+		double bal;
+		
+		
+		public PF(String name, long acc_no, double bal) {
+			super();
+			this.name = name;
+			this.acc_no = acc_no;
+			this.bal = bal;
+		}
+}
+public class SBI implements Bank {
+	
+	SB s=new SB("abc", 134567l,3000);
+	PF p=new PF("abc",134567l,5000);
+	
+	public void deposit(double amt){
+		this.s.bal+=amt;
+	}
+	
+	public void transfer(double amt){
+		this.s.bal-=amt;
+		this.p.bal+=amt;
+	}
+	public void withdraw(double amt){
+		this.s.bal-=amt;
+	}
+}
+public class BankDemo {
+
+	public static void main(String[] args) {
+		SBI sbi=new SBI();
+		sbi.deposit(200);
+		sbi.withdraw(1000);
+		sbi.transfer(1000);
+		System.out.println("name:"+sbi.s.name+"acc:"+sbi.s.acc_no+"Bal:"+sbi.s.bal);
+		System.out.println("name:"+sbi.p.name+"acc:"+sbi.p.acc_no+"Bal:"+sbi.p.bal);
+	}
+
+}
