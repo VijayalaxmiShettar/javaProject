@@ -1,0 +1,51 @@
+public class College {
+	String name;
+	Dept[] d=new Dept[5];
+	int i=0;
+	String code;
+	
+	public College(String name,String code) {
+		super();
+		this.name = name;
+		this.code = code;
+	}
+	void addDept(String name,String code,int noOfstu){
+		d[i++]=new Dept(name, code, noOfstu);
+	}
+	
+	int getColStrength(){
+		int tot=0;
+		for(int i=0;i<d.length;i++){
+			if(d[i]!=null)
+				tot=tot+d[i].noOfstu;
+		}
+			return tot;
+	}
+
+}
+public class Dept {
+	String name;
+	String code;
+	int noOfstu;
+	
+	public Dept(String name, String code, int noOfstu) {
+		super();
+		this.name = name;
+		this.code = code;
+		this.noOfstu = noOfstu;
+	}
+}
+public class CollegeDemo {
+
+	public static void main(String[] args) {
+		College bvb=new College("BVB","KA_BVB");
+		College pcj=new College("PCJ","KA_PCJ");
+		bvb.addDept("cse","cse_bvb" ,250);
+		bvb.addDept("ise","ise_bvb",200);
+		pcj.addDept("bio","bio_pcj",150);
+		pcj.addDept("maths","math_pcj",100);
+		System.out.println("bvb total students:"+bvb.getColStrength());
+		System.out.println("pcj total students:"+pcj.getColStrength());
+	}
+
+}
