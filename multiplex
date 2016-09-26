@@ -1,0 +1,54 @@
+public class Movie {
+	String title,production,certificate,laguage;
+	  Movie(String title, String production, String certificate, String laguage) {
+	        this.title = title;
+	        this.production = production;
+	        this.certificate = certificate;
+	        this.laguage = laguage;
+	  }
+
+}
+public class Multiplex {
+	String name,city;
+	  Screen[] s=new Screen[2];
+	  Multiplex(String name, String city) {
+	        this.name = name;
+	        this.city = city;
+	  }
+}
+
+public class Screen {
+	int screenNum,capacity;
+	  Movie[] m=new Movie[2];
+	  Screen(int screenNum, int capacity) {
+	        this.screenNum = screenNum;
+	        this.capacity = capacity;
+	    }
+
+}
+public class MultiplexDemo {
+	
+	public static void main(String[] args) {
+		Multiplex m=new Multiplex("sujata", "hubli");
+	    m.s[0]=new Screen(1, 350);
+	    m.s[1]=new Screen(2,350);
+	            
+	    m.s[0].m[0]=new Movie("sultan", "yyy", "U", "hindi");
+	    m.s[0].m[1]=new Movie("MS Dhoni", "xyz", "U", "hindi");
+	    m.s[1].m[0]=new Movie("ABCD", "zzz", "U", "hindi");
+	    m.s[1].m[1]=new Movie("avengers", "marvel", "U", "english");
+	    
+	    System.out.println("multiplex ="+m.name);
+	    
+	    System.out.println("on screen "+m.s[0].screenNum);
+	    System.out.println("at 11am and 2pm="+m.s[0].m[0].title);
+	    System.out.println("at 11am and 2pm="+m.s[0].m[1].title);
+	    
+	    System.out.println("on screen "+m.s[1].screenNum);
+	    System.out.println("at 11am and 2pm="+m.s[1].m[0].title);
+	    System.out.println("at 11am and 2pm="+m.s[1].m[1].title);
+	      
+	  }
+		
+
+	}
